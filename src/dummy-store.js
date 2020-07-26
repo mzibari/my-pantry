@@ -1,5 +1,5 @@
 export default {
-    "item": [
+    "items": [
         {
             "id": 1,
             "name": "tomato",
