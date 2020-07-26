@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import './Pantry.css'
+import './AddItem.css'
 
-export default class Pantry extends Component {
+export default class AddItem extends Component {
     render() {
         return (
             <section>
-                <h3>
-                    Add Item
-        </h3>
+                <h3>Add Item</h3>
                 <form id="Add Item">
                     <label htmlFor="item-name">Item name</label>
                     <input type="text" name="item-name" required />

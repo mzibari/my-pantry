@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import './Nav.css'
+import './LandingPage.css'
 
-
-export default class Nav extends Component {
+export default class LandingPage extends Component {
     render() {
         return (
             <div>
-                nav
+                Landing Page
             </div>
         )
     }

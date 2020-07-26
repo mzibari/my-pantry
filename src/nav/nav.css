@@ -1,0 +1,11 @@
+div {
+    text-align: right;
+    background-color: lightgray;
+    height: 5vh;
+    padding: 2%;
+    width: 100%;
+}
+
+.nav-button {
+    margin: 1%;
+}
