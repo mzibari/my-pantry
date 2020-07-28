@@ -8,20 +8,35 @@ import LandingPage from './LandingPage/LandingPage'
 import AddItem from './AddItem/AddItem'
 import Pantry from './Pantry/Pantry'
 import ApiContext from './ApiContext'
+import store from './dummy-store'
 
 class App extends Component {
   state = {
     items: [],
+    users: [],
+  }
+
+  componentDidMount() {
+    this.setState ({
+      items: [
+        ...store.items
+      ],
+      users: [
+        ...store.users
+      ]
+    })
   }
 
   //Adding a new item to the state
   handleAddItem = item => {
+    console.log(item)
     this.setState({
       items: [
         ...this.state.items,
         item
       ]
     })
+    console.log(this.state.items)
   }
 
   //Removing an item for the state
@@ -36,12 +51,23 @@ class App extends Component {
 
   }
 
+  handleAddUser = user => {
+    this.setState({
+      users:[
+        ...this.state.users, 
+        user
+      ]
+    })
+  }
+
   render() {
     const value = {
-      notes: this.state.items,
+      items: this.state.items,
+      users: this.state.users,
       addItem: this.handleAddItem,
       removeItem: this.handleRemoveItem,
       useItem: this.handleUseItem,
+      addUser: this.handleAddUser,
     }
     return (
       <ApiContext.Provider value={value}>
@@ -50,9 +76,9 @@ class App extends Component {
             <Route path='/nav' component={Nav} />
             <Route path='/register' component={RegisterForm} />
             <Route path='/login' component={LoginForm} />
-            <Route path='/LandingPage' component={LandingPage} />
             <Route path='/AddItem' component={AddItem} />
             <Route path='/Pantry' component={Pantry} />
+            <Route path='/' component={LandingPage} />
           </Switch>
         </BrowserRouter>
       </ApiContext.Provider>
