@@ -7,6 +7,8 @@ import LoginForm from './LoginForm/LoginForm'
 import LandingPage from './LandingPage/LandingPage'
 import AddItem from './AddItem/AddItem'
 import Pantry from './Pantry/Pantry'
+import PrivateRoute from './ProtectedRoute/PrivateRoute'
+import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
 import ApiContext from './ApiContext'
 import store from './dummy-store'
 
@@ -74,11 +76,11 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/nav' component={Nav} />
-            <Route path='/register' component={RegisterForm} />
-            <Route path='/login' component={LoginForm} />
-            <Route path='/AddItem' component={AddItem} />
-            <Route path='/Pantry' component={Pantry} />
-            <Route path='/' component={LandingPage} />
+            <PublicOnlyRoute path='/register' component={RegisterForm} />
+            <PublicOnlyRoute path='/login' component={LoginForm} />
+            <PrivateRoute path='/AddItem' component={AddItem} />
+            <PrivateRoute path='/Pantry' component={Pantry} />
+            <Route exact path='/' component={LandingPage} />
           </Switch>
         </BrowserRouter>
       </ApiContext.Provider>
