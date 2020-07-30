@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState ({
+    this.setState({
       items: [
         ...store.items
       ],
@@ -55,8 +55,8 @@ class App extends Component {
 
   handleAddUser = user => {
     this.setState({
-      users:[
-        ...this.state.users, 
+      users: [
+        ...this.state.users,
         user
       ]
     })
@@ -74,8 +74,8 @@ class App extends Component {
     return (
       <ApiContext.Provider value={value}>
         <BrowserRouter>
+          <Nav />
           <Switch>
-            <Route path='/nav' component={Nav} />
             <PublicOnlyRoute path='/register' component={RegisterForm} />
             <PublicOnlyRoute path='/login' component={LoginForm} />
             <PrivateRoute path='/AddItem' component={AddItem} />

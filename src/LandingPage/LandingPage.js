@@ -6,25 +6,25 @@ export default class LandingPage extends Component {
         return (
             <main role="main">
                 <header role="banner">
-                    <h1>Frugal</h1>
-                    <h2>Your Digital Pantry</h2>
+                    <h1>Your Digital Pantry</h1>
                 </header>
                 <section>
-                    <p>Frugal helps you organize and keep track of your pantry</p>
+                    <p>Organize and keep track of your pantry</p>
+                </section>
+                <section>
                     <p>No more wondering whether you have tomato sauce or not</p>
                 </section>
                 <section>
-                    Add items to your pantry as you buy them
-        </section>
+                    <p>Add items to your pantry as you buy them</p>
+                </section>
                 <section>
-                    Remove items as you use them
-        </section>
+                    <p>Remove items as you use them</p>
+                </section>
                 <section>
-                    Share your pantry with family members
-        </section>
+                    <p>Share your pantry with family members</p>
+                </section>
                 <section>
                     <button>Get Started</button>
-                    <button>Login</button>
                 </section>
             </main>
         )

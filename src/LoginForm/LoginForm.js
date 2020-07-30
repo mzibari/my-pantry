@@ -14,8 +14,6 @@ export default class LoginForm extends Component {
     static contextType = ApiContext
 
     handleUserVerification = (username, password) => {
-        console.log(`username ${username.value}`)
-        console.log(`password ${password.value}`)
         const user = this.context.users.find(entry => entry.username === username.value)
         if (user) {
             if (user.password === password.value) {
@@ -27,11 +25,7 @@ export default class LoginForm extends Component {
 
     handleSubmitBasicAuth = event => {
         event.preventDefault()
-        /* const username = event.target['username'].value
-        const password = event.target['password'].value */
         const { username, password } = event.target
-        console.log(username.value)
-
         if (this.handleUserVerification(username, password)) {
             TokenService.saveAuthToken(
                 TokenService.makeBasicAuthToken(username.value, password.value)

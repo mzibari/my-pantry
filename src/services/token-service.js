@@ -1,5 +1,6 @@
 import config from '../config'
 
+
 const TokenService = {
     saveAuthToken(token) {
         window.localStorage.setItem(config.TOKEN_KEY, token)
@@ -16,6 +17,19 @@ const TokenService = {
     makeBasicAuthToken(userName, password) {
         return window.btoa(`${userName}:${password}`)
     },
+    getAuthUserId(users) {
+        const encryptedToken = this.getAuthToken()
+        if (encryptedToken) {
+            const basicTokenUser = Buffer
+                .from(encryptedToken, 'base64')
+                .toString()
+                .split(':', 1) || {}
+            const reqUser = users.find(user => user.username.toString() === basicTokenUser.toString())
+            if (reqUser) {
+                return reqUser.id
+            }
+        }
+    }
 }
 
 export default TokenService

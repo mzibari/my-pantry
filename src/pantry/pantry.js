@@ -3,12 +3,15 @@ import './Pantry.css'
 import Item from './Item/Item'
 import store from '../dummy-store'
 import { findItem } from './Item/ItemService'
+import ApiContext from '../ApiContext'
 
 export default class Pantry extends Component {
-    items = store.items.map(item =>
-        <ul>
-            <li>
-                <Item item={findItem(store.items, item.id)} />
+    static contextType = ApiContext
+
+    userItems = store.items.map((item, i) =>
+        <ul key={i}>
+            <li key={i}>
+                <Item item={item} key={i} />
             </li>
         </ul>
     )
@@ -17,7 +20,7 @@ export default class Pantry extends Component {
             <section>
                 <div>
                     Pantry:
-                        {this.items}
+                        {this.userItems}
                 </div>
             </section>
         )

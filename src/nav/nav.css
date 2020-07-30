@@ -1,11 +1,55 @@
-div {
-    text-align: right;
-    background-color: lightgray;
-    height: 5vh;
-    padding: 2%;
-    width: 100%;
+@import "../AppStyle.css";
+
+nav {
+    height: 50px;
+    background-color: var(--header-footer-border-color);
+    color: var(--font-color-1);
+    font-family: var(--headers-font);
+    border-bottom: 1px solid var(--font-color-1);
 }
 
-.nav-button {
-    margin: 1%;
+.title{
+    font-size: 28px;
+    font-weight: 1000;
+}
+.menu {
+    text-align: center;
+    display: none;
+}
+
+.menu a {
+    clear: right;
+    text-decoration: none;
+    line-height: 50px;
+    display: block;
+    border-bottom: 1px solid var(--font-color-1);
+    color: var(--font-color-1);
+    margin: 0;
+    background-color: var(--header-footer-border-color);
+    z-index: 9999;
+    position: relative;
+    width: 100vw;
+    font-size: 1.2em;
+}
+
+.burger{
+    font-size: 1.5em;
+    position: fixed;
+    cursor: pointer;
+    right:5px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    left: 5px;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle:checked+.menu {
+    display: block;
 }
