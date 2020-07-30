@@ -25,7 +25,7 @@ export default class AddItem extends Component {
     static contextType = ApiContext
     render() {
         return (
-            <section>
+            <section className="add-item-section">
                 <h3>Add Item</h3>
                 <form id="Add Item" onSubmit={this.handleSubmit}>
                     <label htmlFor="item-name">Item name</label>
@@ -36,7 +36,7 @@ export default class AddItem extends Component {
 
                     <label htmlFor="exp-day">Expiration date</label>
                     <input type="text" name="exp-day" required />
-                    <h4>Item type</h4>
+                    <span>Item type</span>
                     <div>
                         <input type="radio" name="item-type" defaultValue={"Canned goods"} className="item-type-radio" />
                         <label htmlFor="item-type">Canned goods</label>
