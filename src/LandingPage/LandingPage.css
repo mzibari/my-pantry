@@ -3,11 +3,7 @@
 main {
     height: 100%;
     padding: 15px;
-}
-
-main * {
-    font-family: var(--content-font);
-    color: var(--font-color-1)
+    text-align: center;
 }
 
 h1 {

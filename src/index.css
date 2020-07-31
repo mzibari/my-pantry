@@ -1,16 +1,14 @@
 @import "AppStyle.css";
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body * {
+  font-family: var(--content-font);
+  color: var(--font-color-1);
+  box-sizing: border-box;
+  font-family: var(--content-font);
+  color:var(--font-color-1);
+  line-height: 1.5;
 }

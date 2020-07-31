@@ -17,11 +17,9 @@ export default class Pantry extends Component {
     )
     render() {
         return (
-            <section>
-                <div>
-                    Pantry:
-                        {this.userItems}
-                </div>
+            <section className="pantry-section">
+                Pantry:
+                {this.userItems}
             </section>
         )
     }

@@ -8,7 +8,7 @@ export default class Nav extends Component {
             <nav>
                 <div className="nav" id="nav">
                     {/* <img src="https://i.ibb.co/RppgW7Y/pantry-Icon.png" className="logo" alt="My Pantry App Logo" /> */}
-                    <span className="title">My Pantry</span>
+                    <span className="title"></span>
                     <label htmlFor="toggle" className="burger">☰</label>
                     <input type="checkbox" id="toggle" />
                     <div class="menu">

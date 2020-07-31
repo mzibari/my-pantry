@@ -1,0 +1,39 @@
+@import "../AppStyle.css";
+.login-section {
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.login-input {
+    appearance: none;
+    background-color: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15px;
+    border: 1px solid var(--font-color-1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.login-button {
+    background-color: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid var(--font-color-1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px var(--font-color-1);
+  }
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px var(--font-color-1);
+}

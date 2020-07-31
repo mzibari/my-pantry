@@ -12,7 +12,7 @@ export default class Item extends Component {
         console.log(TokenService.getAuthUserId(this.context.users))
         if (this.props.item.userId === TokenService.getAuthUserId(this.context.users)) { */
             return (
-                <div>
+                <div className="item">
                     <span>Item name: {this.props.item.name || {}}</span>
                     <span>Quantity: {this.props.item.quantity || {}}</span>
                     <span>Type: {this.props.item.type || {}}</span>
