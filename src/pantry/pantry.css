@@ -1,18 +1,17 @@
 @import "../AppStyle.css";
-
-.pantry-section *{
-    text-align: left;
+.pantry-section {
+    padding: 10px;
 }
 
-.item{
-   
+.item {
+    text-align: left;
     display: flex;
     flex-direction: column;
 }
 
-ul{
+ul {
     list-style-type: none;
-    padding: 0; 
+    padding: 0;
     background-color: var(--main-divs-color);
     margin: 10 px;
     padding: 1px 10px 1px 10px;
@@ -21,4 +20,14 @@ ul{
 
 ul:nth-child(even) {
     background-color: var(--header-footer-border-color);
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid var(--font-color-1);
+    transition: box-shadow 0.2s ease-in-out;
 }

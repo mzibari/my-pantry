@@ -9,7 +9,7 @@ export default class LandingPage extends Component {
 
     render() {
         return (
-            <main role="main">
+            <main role="main" className="page">
                 <header role="banner">
                     <h1>Your Digital Pantry</h1>
                 </header>

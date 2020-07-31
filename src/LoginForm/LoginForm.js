@@ -40,7 +40,7 @@ export default class LoginForm extends Component {
 
     render() {
         return (
-            <section className="login-section">
+            <section className="login-section page">
                 <h2>Log in</h2>
                 <form id="login" className="LoginFrom"
                     onSubmit={this.handleSubmitBasicAuth}>

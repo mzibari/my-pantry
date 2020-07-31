@@ -25,34 +25,36 @@ export default class AddItem extends Component {
     static contextType = ApiContext
     render() {
         return (
-            <section className="add-item-section">
+            <section className="add-item-section page">
                 <h3>Add Item</h3>
                 <form id="Add Item" onSubmit={this.handleSubmit}>
-                    <label htmlFor="item-name">Item name</label>
-                    <input type="text" name="item-name" required />
 
-                    <label htmlFor="quantity">Quantity</label>
-                    <input type="text" name="quantity" required />
+                    <input type="text" className="add-item-input" name="item-name" placeholder="item name" required />
 
-                    <label htmlFor="exp-day">Expiration date</label>
-                    <input type="text" name="exp-day" required />
-                    <span>Item type</span>
-                    <div>
-                        <input type="radio" name="item-type" defaultValue={"Canned goods"} className="item-type-radio" />
-                        <label htmlFor="item-type">Canned goods</label>
+                    <input type="text" className="add-item-input" name="quantity" placeholder="quantity" required />
+
+                    <input type="text" className="add-item-input" name="exp-day" placeholder="expiration date" required />
+
+                    <div className="item-type">
+                        <span>Item type</span>
+                        <div>
+                            <input type="radio" name="item-type" defaultValue={"Canned goods"} className="item-type-radio" />
+                            <label htmlFor="item-type">Canned goods</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="item-type" defaultValue={"Frozen"} className="item-type-radio" />
+                            <label htmlFor="item-type">Frozen</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="item-type" defaultValue={"Produce"} className="item-type-radio" />
+                            <label htmlFor="item-type">Produce</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="item-type" defaultValue={"Spices"} className="item-type-radio" />
+                            <label htmlFor="item-type">Spices</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" name="item-type" defaultValue={"Frozen"} className="item-type-radio" />
-                        <label htmlFor="item-type">Frozen</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="item-type" defaultValue={"Produce"} className="item-type-radio" />
-                        <label htmlFor="item-type">Produce</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="item-type" defaultValue={"Spices"} className="item-type-radio" />
-                        <label htmlFor="item-type">Spices</label>
-                    </div>
+
                     <div>
                         <button type="submit">Add item</button>
                         <button type="reset">Reset</button>

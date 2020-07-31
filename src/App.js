@@ -11,6 +11,9 @@ import PrivateRoute from './ProtectedRoute/PrivateRoute'
 import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
 import ApiContext from './ApiContext'
 import store from './dummy-store'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import './App.css'
+
 
 class App extends Component {
   state = {
@@ -74,14 +77,20 @@ class App extends Component {
     return (
       <ApiContext.Provider value={value}>
         <BrowserRouter>
-          <Nav />
-          <Switch>
-            <PublicOnlyRoute path='/register' component={RegisterForm} />
-            <PublicOnlyRoute path='/login' component={LoginForm} />
-            <PrivateRoute path='/AddItem' component={AddItem} />
-            <PrivateRoute path='/Pantry' component={Pantry} />
-            <Route exact path='/' component={LandingPage} />
-          </Switch>
+          <Route component={Nav} />
+          <Route render={({ location }) => (
+            <TransitionGroup>
+              <CSSTransition key={location.key} timeout={450} classNames="fade">
+                <Switch location={location}>
+                  <PublicOnlyRoute path='/register' component={RegisterForm} />
+                  <PublicOnlyRoute path='/login' component={LoginForm} />
+                  <PrivateRoute path='/AddItem' component={AddItem} />
+                  <PrivateRoute path='/Pantry' component={Pantry} />
+                  <Route exact path='/' component={LandingPage} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )} />
         </BrowserRouter>
       </ApiContext.Provider>
     )

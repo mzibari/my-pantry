@@ -4,7 +4,7 @@ import './RegisterForm.css'
 export default class RegisterForm extends Component {
     render() {
         return (
-            <section className="register-section">
+            <section className="register-section page">
                 <h2>Register</h2>
                 <form id="register" className="RegisterForm">
                     <input type="text" name="first-name" className="register-input" placeholder="first name" required />
