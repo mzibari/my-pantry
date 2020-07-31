@@ -3,8 +3,11 @@ import './LandingPage.css'
 
 export default class LandingPage extends Component {
 
-    setRedirect = () => {
+    redirectRegister = () => {
         this.props.history.push("/register")
+    }
+    redirectLogin = () => {
+        this.props.history.push("/login")
     }
 
     render() {
@@ -29,7 +32,10 @@ export default class LandingPage extends Component {
                     <p>Share your pantry with family members</p>
                 </section>
                 <section className="landing-sections">
-                    <button onClick={this.setRedirect}>Get Started</button>
+                    <button onClick={this.redirectLogin}>Log in</button>
+                </section>
+                <section className="landing-sections">
+                    <button onClick={this.redirectRegister}>Register</button>
                 </section>
             </main>
         )
