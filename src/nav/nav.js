@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import TokenService from '../services/token-service'
+/* import TokenService from '../services/token-service' */
 import './Nav.css'
 
 
 export default class Nav extends Component {
 
-    /* toggleMenu () {
-        document.getElementById("toggle").checked = false
-    } */
 
     renderHome = () => {
         /* this.toggleMenu() */
@@ -24,17 +21,15 @@ export default class Nav extends Component {
     render() {
         return (
             <nav>
-                <div className="nav" id="nav">
-                    <span className="app-name">MyPantry</span>
-                    {/* <img src="https://i.ibb.co/RppgW7Y/pantry-Icon.png" className="logo" alt="My Pantry App Logo" /> */}
-                    <label htmlFor="toggle" className="burger">☰</label>
-                    <input type="checkbox" id="toggle" />
-                    <div className="menu">
-                        <a onClick={this.renderHome}>Home</a>
-                        <a onClick={this.renderPantry}>Pantry</a>
-                        <a onClick={this.renderAddItem}>Add Item</a>
-                        {/* <a onClick={TokenService.clearAuthToken()}>Log Out</a> */}
-                    </div>
+                <img src="https://i.ibb.co/jzxthVL/logo192.png" className="logo" alt="My Pantry App Logo" />
+                <button className="app-name" onClick={this.renderHome}>MyPantry</button>
+                <label htmlFor="toggle" className="burger">☰</label>
+                <input type="checkbox" id="toggle" />
+                <div className="menu">
+                    <button onClick={this.renderHome}>Home</button>
+                    <button onClick={this.renderPantry}>Pantry</button>
+                    <button onClick={this.renderAddItem}>Add Item</button>
+                    {/* <button onClick={TokenService.clearAuthToken()}>Log Out</button> */}
                 </div>
             </nav>
         )

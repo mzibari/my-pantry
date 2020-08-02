@@ -34,14 +34,21 @@ class App extends Component {
 
   //Adding a new item to the state
   handleAddItem = item => {
-    console.log(item)
-    this.setState({
-      items: [
-        ...this.state.items,
-        item
-      ]
-    })
-    console.log(this.state.items)
+    if (this.state.items) {
+      this.setState({
+        items: [
+          ...this.state.items,
+          item
+        ]
+      })
+    }
+    else {
+      this.setState({
+        items: [
+          item
+        ]
+      })
+    }
   }
 
   //Removing an item for the state
@@ -82,11 +89,11 @@ class App extends Component {
             <TransitionGroup>
               <CSSTransition key={location.key} timeout={450} classNames="fade">
                 <Switch location={location}>
-                  <PublicOnlyRoute path='/register' component={RegisterForm} />
-                  <PublicOnlyRoute path='/login' component={LoginForm} />
-                  <PrivateRoute path='/AddItem' component={AddItem} />
-                  <PrivateRoute path='/Pantry' component={Pantry} />
                   <Route exact path='/' component={LandingPage} />
+                  <PublicOnlyRoute exact path='/register' component={RegisterForm} />
+                  <PublicOnlyRoute exact path='/login' component={LoginForm} />
+                  <PrivateRoute exact path='/AddItem' component={AddItem} />
+                  <PrivateRoute exact path='/Pantry' component={Pantry} />
                 </Switch>
               </CSSTransition>
             </TransitionGroup>

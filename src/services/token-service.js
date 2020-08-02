@@ -25,11 +25,25 @@ const TokenService = {
                 .toString()
                 .split(':', 1) || {}
             const reqUser = users.find(user => user.username.toString() === basicTokenUser.toString())
+            console.log(reqUser)
             if (reqUser) {
                 return reqUser.id
             }
         }
-    }
+    },
+    getAuthUserName(users) {
+        const encryptedToken = this.getAuthToken()
+        if (encryptedToken) {
+            const basicTokenUser = Buffer
+                .from(encryptedToken, 'base64')
+                .toString()
+                .split(':', 1) || {}
+            const reqUser = users.find(user => user.username.toString() === basicTokenUser.toString())
+            if (reqUser) {
+                return reqUser.username
+            }
+        }
+    },
 }
 
 export default TokenService

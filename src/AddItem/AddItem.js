@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import './AddItem.css'
 import ApiContext from '../ApiContext'
+import store from '../dummy-store'
+import TokenService from '../services/token-service'
 
 export default class AddItem extends Component {
-    static defaultProps = {
-        history: {
-            push: () => { }
-        },
-    }
 
     handleSubmit = event => {
         event.preventDefault()
@@ -17,6 +14,7 @@ export default class AddItem extends Component {
             quantity: event.target['quantity'].value,
             type: event.target['item-type'].value,
             expiration: event.target['exp-day'].value,
+            usrId: TokenService.getAuthUserId(store.users)
         }
         this.context.addItem(item)
         this.props.history.push('/pantry')
@@ -38,20 +36,24 @@ export default class AddItem extends Component {
                     <div className="item-type">
                         <span>Item type</span>
                         <div>
+                            <label htmlFor="item-type">
                             <input type="radio" name="item-type" defaultValue={"Canned goods"} className="item-type-radio" />
-                            <label htmlFor="item-type">Canned goods</label>
+                            Canned goods</label>
                         </div>
                         <div>
+                            <label htmlFor="item-type">
                             <input type="radio" name="item-type" defaultValue={"Frozen"} className="item-type-radio" />
-                            <label htmlFor="item-type">Frozen</label>
+                            Frozen</label>
                         </div>
                         <div>
+                            <label htmlFor="item-type">
                             <input type="radio" name="item-type" defaultValue={"Produce"} className="item-type-radio" />
-                            <label htmlFor="item-type">Produce</label>
+                            Produce</label>
                         </div>
                         <div>
+                            <label htmlFor="item-type">
                             <input type="radio" name="item-type" defaultValue={"Spices"} className="item-type-radio" />
-                            <label htmlFor="item-type">Spices</label>
+                            Spices</label>
                         </div>
                     </div>
 

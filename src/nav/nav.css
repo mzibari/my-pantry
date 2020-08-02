@@ -10,25 +10,54 @@ nav {
     font-family: var(--headers-font);
     border-bottom: 1px solid var(--font-color-1);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
 }
 
-.title{
-    font-size: 28px;
-    font-weight: 1000;
+.logo{
+    width: 35px;
+    height: 35px;
+    margin: 5px;
 }
+
+.app-name{
+    font-family: var(--headers-font);
+    font-weight: 900;
+    font-size: 25px;
+    margin: 5px;
+    padding: 0;
+    width: fit-content;
+    border:none;
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.app-name:active{
+    border:none;
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.app-name:focus{
+    border:none;
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
 .menu {
     text-align: center;
     display: none;
     flex: 0;
+    position: fixed;
+    top: 45px
 }
 
-.menu a {
+.menu button {
     text-decoration: none;
-    line-height: 50px;
+    line-height: 30px;
     display: block;
-    border-bottom: 1px solid var(--font-color-1);
+    /* border-bottom: 1px solid var(--font-color-1); */
     color: var(--font-color-1);
     margin: 0;
     background-color: var(--header-footer-border-color);
@@ -36,15 +65,17 @@ nav {
     position: relative;
     top: 5px;
     width: 100vw;
-    font-size: 1.2em;
+    font-size: 1em;
     cursor: pointer;
+    border-radius: 0;
 }
 
 .burger{
     font-size: 1.5em;
-    position: fixed;
     cursor: pointer;
     right:5px;
+    width: 35px;
+    height: 35px;
 }
 
 
@@ -56,8 +87,3 @@ nav {
     display: block;
 }
 
-.app-name{
-    font-family: var(--headers-font);
-    font-weight: 900;
-    font-size: 30px;
-}

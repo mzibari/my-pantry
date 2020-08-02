@@ -1,13 +1,41 @@
 import React, { Component } from 'react'
 import './LandingPage.css'
+import TokenService from "../services/token-service"
 
 export default class LandingPage extends Component {
+    constructor(props) {
+        super(props)
+        this.redirectLogout = this.redirectLogout.bind(this)
+    }
 
     redirectRegister = () => {
         this.props.history.push("/register")
     }
     redirectLogin = () => {
         this.props.history.push("/login")
+    }
+
+    redirectLogout() {    
+        TokenService.clearAuthToken()
+        this.props.history.push("/")
+    }
+
+    renderButtons() {
+        if (TokenService.hasAuthToken()) {
+            return (
+                <section className="landing-sections">
+                    <button onClick={this.redirectLogout}>Logout</button>
+                </section>
+            )
+        }
+        else {
+            return (
+                <section className="landing-sections">
+                    <button onClick={this.redirectLogin}>Log in</button>
+                    <button onClick={this.redirectRegister}>Register</button>
+                </section>
+            )
+        }
     }
 
     render() {
@@ -31,12 +59,7 @@ export default class LandingPage extends Component {
                 <section className="landing-sections">
                     <p>Share your pantry with family members</p>
                 </section>
-                <section className="landing-sections">
-                    <button onClick={this.redirectLogin}>Log in</button>
-                </section>
-                <section className="landing-sections">
-                    <button onClick={this.redirectRegister}>Register</button>
-                </section>
+                {this.renderButtons()}
             </main>
         )
     }
