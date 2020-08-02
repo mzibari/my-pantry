@@ -29,7 +29,7 @@ export default class Pantry extends Component {
     render() {
         return (
             <section className="pantry-section page">
-                {/* {this.user}'s pantry: */}
+                {this.user}'s pantry:
                 {this.userItems}
                 <button onClick={this.redirectAddItem}>add item</button>
             </section>

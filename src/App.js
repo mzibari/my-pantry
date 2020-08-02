@@ -34,7 +34,7 @@ class App extends Component {
 
   //Adding a new item to the state
   handleAddItem = item => {
-    if (this.state.items) {
+    if (this.state.items[0].usrId) {
       this.setState({
         items: [
           ...this.state.items,

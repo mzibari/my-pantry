@@ -25,7 +25,6 @@ const TokenService = {
                 .toString()
                 .split(':', 1) || {}
             const reqUser = users.find(user => user.username.toString() === basicTokenUser.toString())
-            console.log(reqUser)
             if (reqUser) {
                 return reqUser.id
             }
@@ -38,9 +37,8 @@ const TokenService = {
                 .from(encryptedToken, 'base64')
                 .toString()
                 .split(':', 1) || {}
-            const reqUser = users.find(user => user.username.toString() === basicTokenUser.toString())
-            if (reqUser) {
-                return reqUser.username
+            if (basicTokenUser) {
+                return basicTokenUser
             }
         }
     },
