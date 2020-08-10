@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './RegisterForm.css'
-import store from '../dummy-store'
 import ApiContext from '../ApiContext'
 
 export default class RegisterForm extends Component {
@@ -23,8 +22,7 @@ export default class RegisterForm extends Component {
             const newUser = {
                 username: document.getElementById("user-name").value,
                 email: document.getElementById("email").value,
-                password: document.getElementById("password").value,
-                id: store.users.length + 1,
+                user_password: document.getElementById("password").value,
             }
             this.context.addUser(newUser)
             this.props.history.push('/login')

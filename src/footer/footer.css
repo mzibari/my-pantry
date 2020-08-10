@@ -1,0 +1,27 @@
+nav, footer {
+    height: initial;
+}
+
+footer {
+    display: relative;
+    bottom: 0;
+    border-top: 1px solid var(--header-footer-border-color);
+    padding-top: 5px;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 40px 0px 40px;
+}
+
+.logos, .contact {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact {
+    text-align: unset;
+    flex: 1;
+}

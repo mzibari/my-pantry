@@ -10,8 +10,8 @@ import Pantry from './Pantry/Pantry'
 import PrivateRoute from './ProtectedRoute/PrivateRoute'
 import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
 import ApiContext from './ApiContext'
-import store from './dummy-store'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import config from './config'
 import './App.css'
 
 
@@ -19,17 +19,44 @@ class App extends Component {
   state = {
     items: [],
     users: [],
+    itemType: [],
   }
 
   componentDidMount() {
-    this.setState({
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/users`),
+      fetch(`${config.API_ENDPOINT}/items`),
+      fetch(`${config.API_ENDPOINT}/itemtype`)
+    ])
+      .then(([usersRes, itemsRes, itemTypeRes]) => {
+        if (!usersRes.ok)
+          return usersRes.json().then(e => Promise.reject(e))
+        if (!itemsRes.ok)
+          return itemsRes.json().then(e => Promise.reject(e))
+        if (!itemTypeRes.ok)
+          return itemTypeRes.json().then(e => Promise.reject(e))
+
+        return Promise.all([
+          usersRes.json(),
+          itemsRes.json(),
+          itemTypeRes.json(),
+        ])
+      })
+      .then(([users, items, itemType]) => {
+        this.setState({ users, items, itemType })
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+
+    /* this.setState({
       items: [
         ...store.items
       ],
       users: [
         ...store.users
       ]
-    })
+    }) */
   }
 
   //Adding a new item to the state
@@ -64,12 +91,30 @@ class App extends Component {
   }
 
   handleAddUser = user => {
-    this.setState({
-      users: [
-        ...this.state.users,
-        user
-      ]
+
+    fetch(`${config.API_ENDPOINT}/users`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user),
     })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(user => {
+        this.setState({
+          users: [
+            ...this.state.users,
+            user
+          ]
+        })
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   render() {

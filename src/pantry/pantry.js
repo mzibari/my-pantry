@@ -25,6 +25,7 @@ export default class Pantry extends Component {
                 </ul>
             )
         }
+        return {}
     })
     render() {
         return (
