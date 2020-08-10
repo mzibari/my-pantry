@@ -3,6 +3,7 @@ import './LoginForm.css'
 import TokenService from '../services/token-service'
 import ApiContext from '../ApiContext'
 
+
 export default class LoginForm extends Component {
     constructor(props) {
         super(props)
@@ -14,6 +15,7 @@ export default class LoginForm extends Component {
             push: () => { }
         },
     }
+    
 
     static contextType = ApiContext
 
@@ -46,8 +48,8 @@ export default class LoginForm extends Component {
                 <form id="login" className="LoginFrom"
                     onSubmit={this.handleSubmitBasicAuth}>
 
-                    <input type="username" name="username" className="login-input" placeholder="username" required />
-                    <input type="password" name="password" className="login-input" placeholder="password" required />
+                    <input type="username" autoComplete="false" name="username" className="login-input" placeholder="username" required />
+                    <input type="password" autoComplete="false" name="password" className="login-input" placeholder="password" required />
                     <span name="error" id="error"></span>
 
 

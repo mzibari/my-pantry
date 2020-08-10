@@ -30,7 +30,7 @@ const TokenService = {
             }
         }
     },
-    getAuthUserName(users) {
+    getAuthUserName() {
         const encryptedToken = this.getAuthToken()
         if (encryptedToken) {
             const basicTokenUser = Buffer
@@ -38,7 +38,7 @@ const TokenService = {
                 .toString()
                 .split(':', 1) || {}
             if (basicTokenUser) {
-                return basicTokenUser
+                return basicTokenUser[0]
             }
         }
     },

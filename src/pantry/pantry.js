@@ -9,23 +9,23 @@ export default class Pantry extends Component {
 
     static contextType = ApiContext
     loginUserId = TokenService.getAuthUserId(this.context.users)
+    user = TokenService.getAuthUserName()
     redirectAddItem = () => {
         this.props.history.push("/additem")
     }
-    
-    user = TokenService.getAuthUserName(this.context.users)
-    
+
+
+
     userItems = this.context.items.map((item, i) => {
-        if (item.usrId === this.loginUserId) {
-            return (
-                <ul key={i}>
-                    <li key={i}>
-                        <Item item={item} key={i} />
-                    </li>
-                </ul>
-            )
-        }
-        return {}
+        if (item.usrid !== this.loginUserId || !this.context.users) return null
+        return (
+            <ul key={i}>
+                <li key={i}>
+                    <Item item={item} key={i} />
+                </li>
+            </ul>
+        )
+
     })
     render() {
         return (

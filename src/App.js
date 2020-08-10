@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Switch } from 'react-router-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import {  Route } from 'react-router-dom'
 import Nav from './Nav/Nav'
 import RegisterForm from './RegisterForm/RegisterForm'
 import LoginForm from './LoginForm/LoginForm'
@@ -51,8 +51,31 @@ class App extends Component {
   }
 
   //Adding a new item to the state
-  handleAddItem = item => {
-    if (this.state.items[0].usrId) {
+  handleAddItem = (item, usrid) => {
+    fetch(`${config.API_ENDPOINT}/users/${usrid}/items`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(item),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(item => {
+        this.setState({
+          items: [
+            ...this.state.items,
+            item
+          ]
+        })
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+    /* if (this.state.items[0].usrId) {
       this.setState({
         items: [
           ...this.state.items,
@@ -66,7 +89,7 @@ class App extends Component {
           item
         ]
       })
-    }
+    } */
   }
 
   //Removing an item for the state
@@ -82,7 +105,6 @@ class App extends Component {
   }
 
   handleAddUser = user => {
-
     fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',
       headers: {
@@ -112,6 +134,7 @@ class App extends Component {
     const value = {
       items: this.state.items,
       users: this.state.users,
+      itemType: this.state.itemTypes,
       addItem: this.handleAddItem,
       removeItem: this.handleRemoveItem,
       useItem: this.handleUseItem,
@@ -119,7 +142,6 @@ class App extends Component {
     }
     return (
       <ApiContext.Provider value={value}>
-        <BrowserRouter>
           <Route component={Nav} />
           <Route render={({ location }) => (
             <TransitionGroup>
@@ -134,7 +156,6 @@ class App extends Component {
               </CSSTransition>
             </TransitionGroup>
           )} />
-        </BrowserRouter>
       </ApiContext.Provider>
     )
   }
