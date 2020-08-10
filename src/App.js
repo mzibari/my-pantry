@@ -48,15 +48,6 @@ class App extends Component {
       .catch(error => {
         console.error({ error })
       })
-
-    /* this.setState({
-      items: [
-        ...store.items
-      ],
-      users: [
-        ...store.users
-      ]
-    }) */
   }
 
   //Adding a new item to the state

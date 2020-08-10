@@ -1,7 +1,9 @@
 {
     "cSpell.ignoreWords": [
+        "additem",
         "divs",
         "info",
+        "itemtype",
         "lyrics",
         "mziba",
         "ohvurl",
@@ -11,6 +13,7 @@
         "search",
         "serif",
         "tadburl",
+        "usrid",
         "yturl"
     ]
 }

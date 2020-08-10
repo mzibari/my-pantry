@@ -4,14 +4,23 @@ import TokenService from '../services/token-service'
 import ApiContext from '../ApiContext'
 
 export default class LoginForm extends Component {
+    constructor(props) {
+        super(props)
+        this.handleSubmitBasicAuth = this.handleSubmitBasicAuth.bind(this)
+    }
 
+    static defaultProps = {
+        history: {
+            push: () => { }
+        },
+    }
 
     static contextType = ApiContext
 
     handleUserVerification = (username, password) => {
         const user = this.context.users.find(entry => entry.username === username.value)
         if (user) {
-            return user.password === password.value
+            return user.user_password === password.value
         }
     }
 
@@ -25,7 +34,7 @@ export default class LoginForm extends Component {
 
             username.value = ''
             password.value = ''
-            this.props.history.push('/additem')
+            this.props.history.push('/Pantry')
         }
         else document.getElementById('error').innerHTML = "Wrong username or password"
     }

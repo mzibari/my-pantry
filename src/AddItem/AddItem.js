@@ -9,12 +9,11 @@ export default class AddItem extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const item = {
-            id: this.context.items.length + 1,
-            name: event.target['item-name'].value,
+            item_name: event.target['item-name'].value,
             quantity: event.target['quantity'].value,
-            type: event.target['item-type'].value,
+            item_type: event.target['item-type'].value,
             expiration: event.target['exp-day'].value,
-            usrId: TokenService.getAuthUserId(store.users)
+            usrid: TokenService.getAuthUserId(store.users)
         }
         this.context.addItem(item)
         this.props.history.push('/pantry')
