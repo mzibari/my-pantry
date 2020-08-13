@@ -56,9 +56,9 @@ export default class LandingPage extends Component {
                 <section className="landing-sections">
                     <p>Remove items as you use them</p>
                 </section>
-                {/* <section className="landing-sections">
+                <section className="landing-sections">
                     <p>Share your pantry with family members</p>
-                </section> */}
+                </section>
                 {this.renderButtons()}
             </main>
         )
