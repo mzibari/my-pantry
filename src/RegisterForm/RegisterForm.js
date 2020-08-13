@@ -8,12 +8,6 @@ export default class RegisterForm extends Component {
         this.handleNewUser = this.handleNewUser.bind(this)
     }
 
-    static defaultProps = {
-        history: {
-            push: () => { }
-        },
-    }
-
     static contextType = ApiContext
 
     handleNewUser(e) {
@@ -25,7 +19,7 @@ export default class RegisterForm extends Component {
                 user_password: document.getElementById("password").value,
             }
             this.context.addUser(newUser)
-            this.props.history.push('/login')
+            this.context.history.push('/login')
         }
     }
 

@@ -1,45 +1,46 @@
 @import "../AppStyle.css";
-
 nav {
     position: fixed;
     z-index: 9990;
     width: 100%;
     height: 50px;
     background-color: var(--header-footer-border-color);
-    color: var(--font-color-1);
+    color: var(--font-color-2);
     font-family: var(--headers-font);
-    border-bottom: 1px solid var(--font-color-1);
+    border-bottom: 1px solid var(--font-color-2);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
 }
 
-.logo{
+.logo {
     width: 35px;
     height: 35px;
     margin: 5px;
 }
 
-.app-name{
+.app-name {
     font-family: var(--headers-font);
     font-weight: 900;
     font-size: 25px;
     margin: 5px;
     padding: 0;
     width: fit-content;
-    border:none;
+    border: none;
     outline: none;
     box-shadow: none;
     -webkit-box-shadow: none;
 }
-.app-name:active{
-    border:none;
+
+.app-name:active {
+    border: none;
     outline: none;
     box-shadow: none;
     -webkit-box-shadow: none;
 }
-.app-name:focus{
-    border:none;
+
+.app-name:focus {
+    border: none;
     outline: none;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -57,8 +58,7 @@ nav {
     text-decoration: none;
     line-height: 30px;
     display: block;
-    /* border-bottom: 1px solid var(--font-color-1); */
-    color: var(--font-color-1);
+    color: var(--font-color-2);
     margin: 0;
     background-color: var(--header-footer-border-color);
     z-index: 9999;
@@ -68,16 +68,17 @@ nav {
     font-size: 1em;
     cursor: pointer;
     border-radius: 0;
+    border-bottom: 1px solid var(--font-color-2);
 }
 
-.burger{
+.burger {
     font-size: 1.5em;
     cursor: pointer;
-    right:5px;
+    right: 5px;
+    top: 5px;
     width: 35px;
     height: 35px;
 }
-
 
 #toggle {
     display: none;
@@ -85,5 +86,23 @@ nav {
 
 #toggle:checked+.menu {
     display: block;
+}
+
+@media screen and (min-width: 480px) {
+    nav label {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+    }
+    .app-name {
+        flex: 2;
+    }
+
+    .menu button {
+        border-right: 1px solid var(--font-color-2);
+    }
 }
 

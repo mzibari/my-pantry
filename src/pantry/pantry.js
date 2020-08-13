@@ -6,7 +6,7 @@ import TokenService from '../services/token-service'
 
 
 export default class Pantry extends Component {
-
+    
     static contextType = ApiContext
     loginUserId = TokenService.getAuthUserId(this.context.users)
     user = TokenService.getAuthUserName()
@@ -14,6 +14,10 @@ export default class Pantry extends Component {
         this.props.history.push("/additem")
     }
 
+    handleDeleteItemRedirect = () => {
+        this.props.history.push('/pantry')
+      }
+    
 
 
     userItems = this.context.items.map((item, i) => {
@@ -21,7 +25,7 @@ export default class Pantry extends Component {
         return (
             <ul key={i}>
                 <li key={i}>
-                    <Item item={item} key={i} />
+                    <Item redirectToPantry={this.handleDeleteItemRedirect} item={item} usrId={this.loginUserId} key={i} />
                 </li>
             </ul>
         )
@@ -30,7 +34,7 @@ export default class Pantry extends Component {
     render() {
         return (
             <section className="pantry-section page">
-                {this.user}'s pantry:
+                <h2 className="pantry-user">{this.user}'s pantry:</h2>
                 {this.userItems}
                 <button onClick={this.redirectAddItem}>add item</button>
             </section>

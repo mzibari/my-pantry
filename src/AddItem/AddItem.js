@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './AddItem.css'
 import ApiContext from '../ApiContext'
-import store from '../dummy-store'
 import TokenService from '../services/token-service'
 
 export default class AddItem extends Component {
@@ -19,29 +18,30 @@ export default class AddItem extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const usrid = TokenService.getAuthUserId(store.users)
+        const usrid = TokenService.getAuthUserId(this.context.users)
         const item = {
             item_name: this.state.item_name,
             quantity: this.state.quantity,
             item_type: this.state.item_type,
             expiration: this.state.expiration,
         }
+        this.context.toRedirect()
+        this.props.history.push('/pantry') 
         this.context.addItem(item, usrid)
-        this.props.history.push('/pantry')
     }
 
     static contextType = ApiContext
     render() {
         return (
             <section className="add-item-section page">
-                <h3>Add Item</h3>
+                <h2>Add Item</h2>
                 <form id="Add Item" onSubmit={this.handleSubmit}>
 
                     <input onChange={this.handleChangeItemName} type="text" className="add-item-input" name="item-name" placeholder="item name" required />
 
                     <input onChange={this.handleChangeQuantity} type="text" className="add-item-input" name="quantity" placeholder="quantity" required />
 
-                    <input onChange={this.handleChangeExpiration} type="text" className="add-item-input" name="exp-day" placeholder="expiration date" required />
+                    <input onChange={this.handleChangeExpiration} type="text" className="add-item-input" name="exp-day" placeholder="exp mmm-dd-yyyy" required />
 
                     <div className="item-type">
                         <span>Item type</span>

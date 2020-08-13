@@ -21,7 +21,6 @@ class App extends Component {
     users: [],
     itemType: [],
   }
-
   componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/users`),
@@ -75,21 +74,7 @@ class App extends Component {
       .catch(error => {
         console.error({ error })
       })
-    /* if (this.state.items[0].usrId) {
-      this.setState({
-        items: [
-          ...this.state.items,
-          item
-        ]
-      })
-    }
-    else {
-      this.setState({
-        items: [
-          item
-        ]
-      })
-    } */
+    
   }
 
   //Removing an item for the state
@@ -100,8 +85,8 @@ class App extends Component {
   }
 
   //Change the quantity of a used item
-  handleUseItem = (itemId, usage) => {
-
+  handleRedirect = () => {
+    window.location = "/pantry"
   }
 
   handleAddUser = user => {
@@ -137,8 +122,8 @@ class App extends Component {
       itemType: this.state.itemTypes,
       addItem: this.handleAddItem,
       removeItem: this.handleRemoveItem,
-      useItem: this.handleUseItem,
       addUser: this.handleAddUser,
+      toRedirect: this.handleRedirect,
     }
     return (
       <ApiContext.Provider value={value}>

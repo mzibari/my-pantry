@@ -7,28 +7,31 @@ export default class Nav extends Component {
 
 
     renderHome = () => {
-        /* this.toggleMenu() */
+        const element = document.getElementById("toggled-menu")
+        if (element.classList.contains("toggle")){
+            element.classList.remove("toggle")
+        }
+        else {
+            element.classList.add("toggle")
+        }
         this.props.history.push("/")
     }
     renderPantry = () => {
-        /* this.toggleMenu() */
         this.props.history.push("/pantry")
     }
     renderAddItem = () => {
-        /* this.toggleMenu() */
         this.props.history.push("/additem")
     }
     render() {
         return (
             <nav>
-                <img src="https://i.ibb.co/jzxthVL/logo192.png" className="logo" alt="My Pantry App Logo" />
                 <button className="app-name" onClick={this.renderHome}>MyPantry</button>
                 <label htmlFor="toggle" className="burger">☰</label>
                 <input type="checkbox" id="toggle" />
-                <div className="menu">
-                    <button onClick={this.renderHome}>Home</button>
-                    <button onClick={this.renderPantry}>Pantry</button>
-                    <button onClick={this.renderAddItem}>Add Item</button>
+                <div className="menu" id="toggled-menu">
+                    <button className="home" onClick={this.renderHome}>Home</button>
+                    <button className="pantry" onClick={this.renderPantry}>Pantry</button>
+                    <button className="add-item" onClick={this.renderAddItem}>Add Item</button>
                     {/* <button onClick={TokenService.clearAuthToken()}>Log Out</button> */}
                 </div>
             </nav>

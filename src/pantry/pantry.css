@@ -1,25 +1,38 @@
 @import "../AppStyle.css";
-.pantry-section {
-    padding: 10px;
-}
-
 .item {
     text-align: left;
     display: flex;
     flex-direction: column;
 }
 
+.pantry-section{
+    background-color: var(--main-divs-color-1);
+    width: 90%;
+    margin: 5%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
-    background-color: var(--main-divs-color);
+    color: var(--font-color-1);
     margin: 10 px;
     padding: 1px 10px 1px 10px;
     border-radius: 5px;
 }
 
+.pantry-user{
+    text-transform: uppercase;
+}
+
 ul:nth-child(even) {
-    background-color: var(--header-footer-border-color);
+    background-color: var(--main-divs-color-2);
+    color: var(--font-color-2);
+}
+
+ul:nth-child(odd) *{
+    color: var(--font-color-1);
 }
 
 button {
@@ -30,4 +43,29 @@ button {
     margin-right: 10%;
     border: 1px solid var(--font-color-1);
     transition: box-shadow 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 480px) {
+    .pantry-section {
+        width: 60%;
+        margin:5% 20% 5% 20%;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .pantry-section {
+        width: 40%;
+        margin:5% 30% 5% 30%;
+        padding-bottom: 3%;
+        height: fit-content;
+    }
 }

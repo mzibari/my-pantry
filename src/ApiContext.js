@@ -7,4 +7,5 @@ export default React.createContext ({
     removeItem: () => {},
     useItem: () => {},
     addUser: () => {},
+    toRedirect: () => {},
 })

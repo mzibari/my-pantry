@@ -1,15 +1,14 @@
 @import "AppStyle.css";
 body {
   margin: 0;
-  background-color: var(--background-color);
+  background-image: url("https://i.ibb.co/frkr3jT/ehud-neuhaus-s-HRw6n0n-LRw-unsplash.jpg");
+  background-size: cover;
 }
 
 body * {
   font-family: var(--content-font);
-  color: var(--font-color-1);
   box-sizing: border-box;
   font-family: var(--content-font);
-  color:var(--font-color-1);
   line-height: 1.5;
 }
 
