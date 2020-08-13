@@ -27,6 +27,10 @@ button {
     margin-top: 20px;
 }
 
+.demo-username, .demo-password {
+    font-weight: bold;
+}
+
 @media screen and (min-width: 480px) {
     main {
         width: 60%;

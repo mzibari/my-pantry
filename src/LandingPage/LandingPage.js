@@ -57,7 +57,10 @@ export default class LandingPage extends Component {
                     <p>Remove items as you use them</p>
                 </section>
                 <section className="landing-sections">
-                    <p>Share your pantry with family members</p>
+                    <p>Try the app with our demo user account{' '}
+                        <span className="demo-username">Username: </span>demo-user{' '}
+                        <span className="demo-password">Password: </span>demo
+                    </p>
                 </section>
                 {this.renderButtons()}
             </main>
