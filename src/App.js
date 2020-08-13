@@ -59,11 +59,13 @@ class App extends Component {
       body: JSON.stringify(item),
     })
       .then(res => {
+        console.log('before setting state in handleAddItem')
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
         return res.json()
       })
       .then(item => {
+        console.log('setting state in handleAddItem')
         this.setState({
           items: [
             ...this.state.items,
@@ -77,7 +79,7 @@ class App extends Component {
     
   }
 
-  //Removing an item for the state
+  //Removing an item from the state
   handleRemoveItem = itemId => {
     this.setState({
       items: this.state.items.filter(item => item.id !== itemId)

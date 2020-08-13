@@ -6,7 +6,7 @@ import TokenService from '../services/token-service'
 
 
 export default class Pantry extends Component {
-    
+
     static contextType = ApiContext
     loginUserId = TokenService.getAuthUserId(this.context.users)
     user = TokenService.getAuthUserName()
@@ -21,6 +21,7 @@ export default class Pantry extends Component {
 
 
     userItems = this.context.items.map((item, i) => {
+        console.log('setting userItems ')
         if (item.usrid !== this.loginUserId || !this.context.users) return null
         return (
             <ul key={i}>
