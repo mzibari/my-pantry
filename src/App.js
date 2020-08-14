@@ -19,13 +19,13 @@ class App extends Component {
   state = {
     items: [],
     users: [],
-    itemType: [],
+    itemTypes: [],
   }
   componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/users`),
       fetch(`${config.API_ENDPOINT}/items`),
-      fetch(`${config.API_ENDPOINT}/itemtype`)
+      fetch(`${config.API_ENDPOINT}/itemtypes`)
     ])
       .then(([usersRes, itemsRes, itemTypeRes]) => {
         if (!usersRes.ok)

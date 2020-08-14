@@ -84,8 +84,11 @@ nav {
     display: none;
 }
 
-#toggle:checked+.menu {
+.show-menu {
     display: block;
+}
+.hide-menu {
+    display: none;
 }
 
 @media screen and (min-width: 480px) {

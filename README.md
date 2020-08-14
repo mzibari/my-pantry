@@ -28,7 +28,7 @@ User can view their pantry and details about each item.
 ![login page screenshot](screenshots/login-page.JPG)
 ![register page screenshot](screenshots/register-page.JPG)
 ![pantry page screenshot](screenshots/pantry-page.JPG)
-![add item page screenshot](screenshots/additem-page.JPG)
+![add item page screenshot](screenshots/addItem-page.JPG)
 
 
 Developed by Mahmood Nihad

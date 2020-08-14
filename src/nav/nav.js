@@ -4,22 +4,39 @@ import './Nav.css'
 
 
 export default class Nav extends Component {
+    state = {
+        isBurgerShown: false
+    }
 
+    handleBurger = () => {
+        if(this.state.isBurgerShown){
+        this.setState({
+            isBurgerShown: false
+        })}
+        else {
+            this.setState ({
+                isBurgerShown: true
+            })
+        }
+        
+    }
 
     renderHome = () => {
-        const element = document.getElementById("toggled-menu")
-        if (element.classList.contains("toggle")){
-            element.classList.remove("toggle")
-        }
-        else {
-            element.classList.add("toggle")
-        }
+        this.setState({
+            isBurgerShown: false
+        })
         this.props.history.push("/")
     }
     renderPantry = () => {
+        this.setState({
+            isBurgerShown: false
+        })
         this.props.history.push("/pantry")
     }
     renderAddItem = () => {
+        this.setState({
+            isBurgerShown: false
+        })
         this.props.history.push("/additem")
     }
     render() {
@@ -27,8 +44,8 @@ export default class Nav extends Component {
             <nav>
                 <button className="app-name" onClick={this.renderHome}>MyPantry</button>
                 <label htmlFor="toggle" className="burger">☰</label>
-                <input type="checkbox" id="toggle" />
-                <div className="menu" id="toggled-menu">
+                <input type="checkbox" onClick={this.handleBurger} id="toggle" />
+                <div id="toggled-menu" className={this.state.isBurgerShown ? "show-menu menu" : "hide-menu menu"}>
                     <button className="home" onClick={this.renderHome}>Home</button>
                     <button className="pantry" onClick={this.renderPantry}>Pantry</button>
                     <button className="add-item" onClick={this.renderAddItem}>Add Item</button>
