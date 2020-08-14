@@ -73,6 +73,9 @@ class App extends Component {
           ]
         })
       })
+      .then(res => {
+        this.props.history.push('/pantry')
+      })
       .catch(error => {
         console.error({ error })
       })
@@ -88,7 +91,7 @@ class App extends Component {
 
   //Change the quantity of a used item
   handleRedirect = () => {
-    window.location = "/pantry"
+    window.location = '/pantry'
   }
 
   handleAddUser = user => {
@@ -132,7 +135,7 @@ class App extends Component {
           <Route component={Nav} />
           <Route render={({ location }) => (
             <TransitionGroup>
-              <CSSTransition key={location.key} timeout={450} classNames="fade">
+              <CSSTransition key={location.key} timeout={450} classNames='fade'>
                 <Switch location={location}>
                   <Route exact path='/' component={LandingPage} />
                   <PublicOnlyRoute exact path='/register' component={RegisterForm} />

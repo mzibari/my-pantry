@@ -1,4 +1,4 @@
-@import "../AppStyle.css";
+@import '../AppStyle.css';
 .item {
     text-align: left;
     display: flex;

@@ -1,7 +1,7 @@
-@import "AppStyle.css";
+@import 'AppStyle.css';
 body {
   margin: 0;
-  background-image: url("https://i.ibb.co/frkr3jT/ehud-neuhaus-s-HRw6n0n-LRw-unsplash.jpg");
+  background-image: url('https://i.ibb.co/frkr3jT/ehud-neuhaus-s-HRw6n0n-LRw-unsplash.jpg');
   background-size: cover;
 }
 

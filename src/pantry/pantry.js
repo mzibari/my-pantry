@@ -11,7 +11,7 @@ export default class Pantry extends Component {
     loginUserId = TokenService.getAuthUserId(this.context.users)
     user = TokenService.getAuthUserName()
     redirectAddItem = () => {
-        this.props.history.push("/additem")
+        this.props.history.push('/additem')
     }
 
     handleDeleteItemRedirect = () => {
@@ -34,8 +34,8 @@ export default class Pantry extends Component {
     })
     render() {
         return (
-            <section className="pantry-section page">
-                <h2 className="pantry-user">{this.user}'s pantry:</h2>
+            <section className='pantry-section page'>
+                <h2 className='pantry-user'>{this.user}'s pantry:</h2>
                 {this.userItems}
                 <button onClick={this.redirectAddItem}>add item</button>
             </section>

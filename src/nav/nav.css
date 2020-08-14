@@ -1,4 +1,4 @@
-@import "../AppStyle.css";
+@import '../AppStyle.css';
 nav {
     position: fixed;
     z-index: 9990;

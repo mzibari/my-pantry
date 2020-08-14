@@ -19,6 +19,7 @@ export default class LoginForm extends Component {
 
     static contextType = ApiContext
 
+    // Validating user and password against the server
     handleUserVerification = (username, password) => {
         const user = this.context.users.find(entry => entry.username === username.value)
         if (user) {
@@ -38,22 +39,22 @@ export default class LoginForm extends Component {
             password.value = ''
             this.props.history.push('/Pantry')
         }
-        else document.getElementById('error').innerHTML = "Wrong username or password"
+        else document.getElementById('error').innerHTML = 'Wrong username or password'
     }
 
     render() {
         return (
-            <section className="login-section page">
+            <section className='login-section page'>
                 <h2>Log in</h2>
-                <form id="login" className="LoginFrom"
+                <form id='login' className='LoginFrom'
                     onSubmit={this.handleSubmitBasicAuth}>
 
-                    <input type="username" autoComplete="false" name="username" className="login-input" placeholder="username" required />
-                    <input type="password" autoComplete="false" name="password" className="login-input" placeholder="password" required />
-                    <span name="error" id="error"></span>
+                    <input type='username' autoComplete='false' name='username' className='login-input' placeholder='username' required />
+                    <input type='password' autoComplete='false' name='password' className='login-input' placeholder='password' required />
+                    <span name='error' id='error'></span>
 
 
-                    <button type="submit" className="login-button">Log in</button>
+                    <button type='submit' className='login-button'>Log in</button>
 
                 </form>
             </section>
