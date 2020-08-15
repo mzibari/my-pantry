@@ -15,27 +15,23 @@ export default class Pantry extends Component {
     }
 
     handleDeleteItemRedirect = () => {
-        this.props.history.push('/pantry')
-      }
-    
-
-
-    userItems = this.context.items.map((item, i) => {
-        if (item.usrid !== this.loginUserId || !this.context.users) return null
-        return (
-            <ul key={i}>
-                <li key={i}>
-                    <Item redirectToPantry={this.handleDeleteItemRedirect} item={item} usrId={this.loginUserId} key={i} />
-                </li>
-            </ul>
-        )
-
-    })
+         this.props.history.push('/pantry')
+       }
     render() {
+        const userItems = this.context.items.map((item, i) => {
+            if (item.usrid !== this.loginUserId || !this.context.users) return null
+            return (
+                <ul key={i}>
+                    <li key={i}>
+                        <Item redirectToPantry={this.handleDeleteItemRedirect} item={item} usrId={this.loginUserId} key={i} />
+                    </li>
+                </ul>
+            )
+        })
         return (
             <section className='pantry-section page'>
                 <h2 className='pantry-user'>{this.user}'s pantry:</h2>
-                {this.userItems}
+                {userItems}
                 <button onClick={this.redirectAddItem}>add item</button>
             </section>
         )

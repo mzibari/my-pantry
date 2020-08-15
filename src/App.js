@@ -75,7 +75,6 @@ class App extends Component {
       .catch(error => {
         console.error({ error })
       })
-
   }
 
   //Removing an item from the state
@@ -83,11 +82,6 @@ class App extends Component {
     this.setState({
       items: this.state.items.filter(item => item.id !== itemId)
     })
-  }
-
-  //Change the quantity of a used item
-  handleRedirect = () => {
-    window.location = '/pantry'
   }
 
   handleAddUser = user => {
@@ -124,7 +118,6 @@ class App extends Component {
       addItem: this.handleAddItem,
       removeItem: this.handleRemoveItem,
       addUser: this.handleAddUser,
-      toRedirect: this.handleRedirect,
     }
     return (
       <ApiContext.Provider value={value}>
