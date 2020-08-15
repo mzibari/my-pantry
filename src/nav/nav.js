@@ -23,7 +23,7 @@ export default class Nav extends Component {
     }
 
     renderHome = () => {
-        this.setState({
+        this.setState({ 
             isBurgerShown: false
         })
         this.props.history.push('/')

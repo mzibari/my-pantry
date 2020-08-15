@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Switch } from 'react-router-dom'
-import {  Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Nav from './Nav/Nav'
 import RegisterForm from './RegisterForm/RegisterForm'
 import LoginForm from './LoginForm/LoginForm'
@@ -47,6 +47,7 @@ class App extends Component {
       .catch(error => {
         console.error({ error })
       })
+
   }
 
   //Adding a new item to the state
@@ -59,13 +60,11 @@ class App extends Component {
       body: JSON.stringify(item),
     })
       .then(res => {
-        console.log('before setting state in handleAddItem')
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
         return res.json()
       })
       .then(item => {
-        console.log('setting state in handleAddItem')
         this.setState({
           items: [
             ...this.state.items,
@@ -73,13 +72,10 @@ class App extends Component {
           ]
         })
       })
-      .then(res => {
-        this.props.history.push('/pantry')
-      })
       .catch(error => {
         console.error({ error })
       })
-    
+
   }
 
   //Removing an item from the state
@@ -132,20 +128,20 @@ class App extends Component {
     }
     return (
       <ApiContext.Provider value={value}>
-          <Route component={Nav} />
-          <Route render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition key={location.key} timeout={450} classNames='fade'>
-                <Switch location={location}>
-                  <Route exact path='/' component={LandingPage} />
-                  <PublicOnlyRoute exact path='/register' component={RegisterForm} />
-                  <PublicOnlyRoute exact path='/login' component={LoginForm} />
-                  <PrivateRoute exact path='/AddItem' component={AddItem} />
-                  <PrivateRoute exact path='/Pantry' component={Pantry} />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )} />
+        <Route component={Nav} />
+        <Route render={({ location }) => (
+          <TransitionGroup>
+            <CSSTransition key={location.key} timeout={450} classNames='fade'>
+              <Switch location={location}>
+                <Route exact path='/' component={LandingPage} />
+                <PublicOnlyRoute exact path='/register' component={RegisterForm} />
+                <PublicOnlyRoute exact path='/login' component={LoginForm} />
+                <PrivateRoute exact path='/AddItem' component={AddItem} />
+                <PrivateRoute exact path='/Pantry' component={Pantry} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )} />
       </ApiContext.Provider>
     )
   }

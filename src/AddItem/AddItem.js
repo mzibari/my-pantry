@@ -27,7 +27,7 @@ export default class AddItem extends Component {
             expiration: this.state.expiration,
         }
         this.context.addItem(item, usrid)
-        this.props.history.goBack() 
+        this.props.history.push('/pantry') 
     }
 
     static contextType = ApiContext
