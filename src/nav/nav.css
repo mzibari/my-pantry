@@ -106,6 +106,7 @@ nav {
 
     .menu button {
         border-right: 1px solid var(--font-color-2);
+        font-size: x-large;
     }
 }
 

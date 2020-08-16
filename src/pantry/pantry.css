@@ -9,7 +9,7 @@
     background-color: var(--main-divs-color-1);
     width: 90%;
     margin: 5%;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 10px;
 }
 
@@ -24,6 +24,7 @@ ul {
 
 .pantry-user{
     text-transform: uppercase;
+    text-align: center;
 }
 
 ul:nth-child(even) {
