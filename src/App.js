@@ -36,6 +36,7 @@ class App extends Component {
           return itemTypeRes.json().then(e => Promise.reject(e))
 
         return Promise.all([
+          
           usersRes.json(),
           itemsRes.json(),
           itemTypeRes.json(),
@@ -76,7 +77,7 @@ class App extends Component {
         console.error({ error })
       })
   }
-
+  //Need to actually add the fetch request
   //Removing an item from the state
   handleRemoveItem = itemId => {
     this.setState({

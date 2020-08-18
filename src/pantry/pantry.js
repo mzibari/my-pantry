@@ -8,6 +8,7 @@ import TokenService from '../services/token-service'
 export default class Pantry extends Component {
 
     static contextType = ApiContext
+   
     loginUserId = TokenService.getAuthUserId(this.context.users)
     user = TokenService.getAuthUserName()
     redirectAddItem = () => {
