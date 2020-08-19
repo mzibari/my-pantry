@@ -27,7 +27,6 @@ export default class AddItem extends Component {
             item_type: xss(this.state.item_type),
             expiration: xss(this.state.expiration),
         }
-        console.log(item)
         this.context.addItem(item, usrid)
         this.props.history.push('/pantry')
     }
