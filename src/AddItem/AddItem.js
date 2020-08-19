@@ -14,9 +14,9 @@ export default class AddItem extends Component {
     }
 
     handleChangeItemName = e => this.setState({ item_name: e.target.value })
-    handleChangeQuantity = e => this.setState({ quantity: this.quantity })
+    handleChangeQuantity = e => this.setState({ quantity: e.target.value })
     handleChangeItemType = e => this.setState({ item_type: e.target.value })
-    handleChangeExpiration = e => this.setState({ expiration: e.target.value })
+    handleChangeExpiration = e => this.setState({ expiration: e.target.value.toString() })
 
     handleSubmit = event => {
         event.preventDefault()
@@ -27,7 +27,7 @@ export default class AddItem extends Component {
             item_type: xss(this.state.item_type),
             expiration: xss(this.state.expiration),
         }
-
+        console.log(item)
         this.context.addItem(item, usrid)
         this.props.history.push('/pantry')
     }
