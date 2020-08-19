@@ -36,7 +36,7 @@ export default class Item extends Component {
             <div className='item'>
                 <span className='name'>{this.props.item.item_name || null}</span>
                 <span className='quantity'>Quantity: {this.props.item.quantity || null}</span>
-                <span className='type'>Type: {this.props.item.item_type || null}</span>
+                <span className='type'>Type: {this.props.item.type || null}</span>
                 <span className='exp'>Expiration date: {this.props.item.expiration || null}</span>
                 <button
                     className='item__delete'

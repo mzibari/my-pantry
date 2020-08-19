@@ -16,7 +16,7 @@ export default class AddItem extends Component {
     handleChangeItemName = e => this.setState({ item_name: e.target.value })
     handleChangeQuantity = e => this.setState({ quantity: e.target.value })
     handleChangeItemType = e => this.setState({ item_type: e.target.value })
-    handleChangeExpiration = e => this.setState({ expiration: e.target.value.toString() })
+    handleChangeExpiration = e => this.setState({ expiration: e.target.value })
 
     handleSubmit = event => {
         event.preventDefault()
