@@ -61,6 +61,11 @@ input:focus {
     background-color: var(--background-color-1);
 }
 
+#registrationError{
+    color: rgb(255, 0, 0);
+    text-shadow: 1px 1px black;
+}
+
 @media screen and (min-width: 480px) {
     .register-section {
         width: 60%;
